@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОГЭ: Текст "Scouts" - Задание на понимание</title>
+    <style>
+@media (max-width: 900px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .header {
+        padding: 16px 12px;
+        margin-bottom: 12px;
+    }
+
+    .instructions {
+        padding: 12px;
+        margin-bottom: 18px;
+    }
+
+    .task-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .text-section, .questions-section {
+        width: 100%;
+    }
+
+    .text-box, .questions-box {
+        height: auto;
+        min-height: 0;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .question-item {
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .answer-option {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    .question-number {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 0.85rem;
+    }
+
+    .option-letter {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        padding: 14px;
+        border-radius: 16px;
+        border-width: 1px;
+    }
+
+    .header {
+        padding: 14px 10px;
+        margin-bottom: 12px;
+    }
+
+    .instructions {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .task-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .text-section, .questions-section {
+        width: 100%;
+    }
+
+    .text-box, .questions-box {
+        height: auto;
+        min-height: 0;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .question-item {
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    .answer-option {
+        padding: 9px 10px;
+        font-size: 0.9rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .question-number {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .option-letter {
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 0.75rem;
+    }
+}
+
+        :root {
+            --bg: #f0fdf4;
+            --bg-dot: rgba(34, 197, 94, 0.18);
+            --card: #ffffff;
+            --soft: #dcfce7;
+            --soft-2: #ecfdf5;
+            --green: #16a34a;
+            --green-dark: #065f46;
+            --green-mid: #22c55e;
+            --mint: #bbf7d0;
+            --text: #17352a;
+            --muted: #45695c;
+            --shadow: rgba(6, 95, 70, 0.14);
+            --danger: #dc2626;
+            --success: #16a34a;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.18), transparent 28%),
+                radial-gradient(circle at 80% 0%, rgba(20, 184, 166, 0.16), transparent 30%),
+                radial-gradient(var(--bg-dot) 1px, transparent 1px);
+            background-size: auto, auto, 22px 22px;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 18px;
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 28px;
+            box-shadow: 0 24px 60px var(--shadow);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(34, 197, 94, 0.45);
+            backdrop-filter: blur(8px);
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 8px;
+            background: linear-gradient(90deg, #22c55e, #14b8a6, #84cc16);
+            z-index: 1;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 22px;
+            border: 1px solid rgba(34, 197, 94, 0.28);
+            background:
+                linear-gradient(135deg, rgba(220, 252, 231, 0.95), rgba(236, 253, 245, 0.95)),
+                radial-gradient(circle at top right, rgba(34, 197, 94, 0.22), transparent 38%);
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 12px 28px rgba(22, 163, 74, 0.10);
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            color: var(--green-dark);
+            margin: 0;
+            font-size: clamp(1.45rem, 3vw, 2.25rem);
+            line-height: 1.18;
+            letter-spacing: -0.03em;
+        }
+        
+        .subtitle {
+            color: var(--muted);
+            font-size: clamp(0.98rem, 2vw, 1.15rem);
+            line-height: 1.55;
+            margin: 12px auto 0;
+            max-width: 920px;
+        }
+        
+        .emoji {
+            font-size: 1.35em;
+            margin-right: 8px;
+            vertical-align: -0.12em;
+            filter: drop-shadow(0 2px 3px rgba(6, 95, 70, 0.16));
+        }
+        
+        .instructions {
+            background: linear-gradient(135deg, #ecfdf5, #f7fee7);
+            padding: 18px 20px;
+            border-radius: 20px;
+            margin-bottom: 26px;
+            border-left: 7px solid var(--green-mid);
+            box-shadow: 0 10px 22px rgba(22, 163, 74, 0.10);
+            color: var(--text);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .instructions p {
+            margin: 0 0 10px;
+            line-height: 1.55;
+        }
+        
+        .instructions p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .task-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 28px;
+            align-items: stretch;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .text-section, .questions-section {
+            flex: 1;
+            min-width: 340px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-title {
+            background: linear-gradient(90deg, var(--green), var(--green-dark));
+            color: white;
+            padding: 15px 18px;
+            border-radius: 18px 18px 0 0;
+            margin: 0;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            display: flex;
+            align-items: center;
+            box-shadow: 0 8px 18px rgba(6, 95, 70, 0.18);
+        }
+        
+        .text-box, .questions-box {
+            border: 2px solid rgba(34, 197, 94, 0.45);
+            border-top: none;
+            border-radius: 0 0 18px 18px;
+            padding: 22px;
+            background: rgba(248, 255, 251, 0.96);
+            overflow-y: auto;
+            box-shadow: inset 0 2px 12px rgba(6, 95, 70, 0.05);
+            flex-grow: 1;
+            min-height: 700px;
+            max-height: 750px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--green-mid) #dcfce7;
+        }
+        
+        .text-box::-webkit-scrollbar,
+        .questions-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .text-box::-webkit-scrollbar-thumb,
+        .questions-box::-webkit-scrollbar-thumb {
+            background: var(--green-mid);
+            border-radius: 999px;
+        }
+        
+        .text-box::-webkit-scrollbar-track,
+        .questions-box::-webkit-scrollbar-track {
+            background: #dcfce7;
+        }
+        
+        .text-box {
+            line-height: 1.75;
+            font-size: 1.05rem;
+            color: #1f3d33;
+        }
+        
+        .question-item {
+            margin-bottom: 18px;
+            padding: 18px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(6, 95, 70, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.22);
+            border-left: 6px solid var(--green-mid);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        
+        .question-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(6, 95, 70, 0.12);
+        }
+        
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            gap: 12px;
+        }
+        
+        .question-number {
+            background: linear-gradient(135deg, #bbf7d0, #86efac);
+            color: var(--green-dark);
+            width: 42px;
+            height: 42px;
+            text-align: center;
+            line-height: 42px;
+            border-radius: 50%;
+            font-weight: 900;
+            flex-shrink: 0;
+            border: 2px solid rgba(22, 163, 74, 0.45);
+            box-shadow: 0 6px 14px rgba(22, 163, 74, 0.13);
+        }
+        
+        .question-text {
+            font-weight: 800;
+            color: var(--green-dark);
+            font-size: 1.03rem;
+            flex: 1;
+            line-height: 1.45;
+        }
+        
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .answer-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 14px;
+            background: #f0fdf4;
+            border-radius: 14px;
+            border: 2px solid #bbf7d0;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            color: var(--text);
+        }
+        
+        .answer-option:hover {
+            background: #dcfce7;
+            transform: translateX(4px);
+            box-shadow: 0 8px 16px rgba(22, 163, 74, 0.10);
+        }
+        
+        .answer-option.selected {
+            border-color: var(--green);
+            background: #dcfce7;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.13);
+        }
+        
+        .answer-option.correct {
+            border-color: var(--success);
+            background-color: #dcfce7;
+        }
+        
+        .answer-option.incorrect {
+            border-color: var(--danger);
+            background-color: #fee2e2;
+        }
+        
+        .option-letter {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 50%;
+            font-weight: 900;
+            margin-right: 13px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 12px rgba(22, 163, 74, 0.20);
+        }
+        
+        .option-letter.correct {
+            background: var(--success);
+        }
+        
+        .option-letter.incorrect {
+            background: var(--danger);
+        }
+        
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            display: none;
+            animation: fadeIn 0.45s ease;
+            line-height: 1.5;
+        }
+        
+        .correct-feedback {
+            background-color: #dcfce7;
+            color: #166534;
+            border-left: 5px solid var(--success);
+        }
+        
+        .incorrect-feedback {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border-left: 5px solid var(--danger);
+        }
+        
+        .highlight {
+            background: linear-gradient(90deg, #fef08a, #fde68a);
+            padding: 3px 6px;
+            border-radius: 7px;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 34px;
+            gap: 16px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 16px;
+            font-weight: 900;
+            cursor: pointer;
+            font-size: 1.03rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+            box-shadow: 0 10px 20px rgba(6, 95, 70, 0.16);
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 24px rgba(6, 95, 70, 0.20);
+            filter: brightness(1.03);
+        }
+        
+        button:active {
+            transform: translateY(-1px);
+        }
+        
+        .check-btn {
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            color: white;
+        }
+        
+        .check-btn:hover {
+            background: linear-gradient(90deg, #16a34a, #15803d);
+        }
+        
+        .reset-btn {
+            background: linear-gradient(90deg, #14b8a6, #0f766e);
+            color: white;
+        }
+        
+        .reset-btn:hover {
+            background: linear-gradient(90deg, #0f766e, #115e59);
+        }
+        
+        .results {
+            text-align: center;
+            margin-top: 26px;
+            padding: 18px;
+            border-radius: 20px;
+            font-weight: 900;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            display: none;
+            animation: fadeIn 0.55s ease;
+            box-shadow: 0 12px 28px rgba(6, 95, 70, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .success {
+            background: linear-gradient(90deg, #dcfce7, #bbf7d0);
+            color: #166534;
+            border: 3px solid var(--success);
+        }
+        
+        .partial {
+            background: linear-gradient(90deg, #fffbeb, #fed7aa);
+            color: #9a3412;
+            border: 3px solid var(--warning);
+        }
+        
+        .progress-info {
+            margin-top: 12px;
+            font-size: 1.02rem;
+            color: var(--green-dark);
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        .decoration {
+            position: absolute;
+            font-size: 6rem;
+            opacity: 0.07;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .decoration-1 {
+            top: 36px;
+            right: 32px;
+        }
+        
+        .decoration-2 {
+            bottom: 32px;
+            left: 30px;
+        }
+        
+        .text-content {
+            margin-bottom: 20px;
+        }
+        
+        .text-content p {
+            margin: 0 0 15px;
+            text-align: justify;
+        }
+        
+        .text-content div[style] {
+            border-top-color: #86efac !important;
+        }
+        
+        .text-content div[style] p[style] {
+            color: var(--green-dark) !important;
+        }
+        
+        @media (max-width: 900px) {
+            body {
+                padding: 12px;
+            }
+            
+            .container {
+                padding: 20px;
+                border-radius: 24px;
+            }
+            
+            .task-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .text-section, .questions-section {
+                min-width: 0;
+                width: 100%;
+            }
+            
+            .text-box, .questions-box {
+                height: auto;
+                min-height: 420px;
+                max-height: none;
+                overflow-y: visible;
+            }
+            
+            .section-title {
+                border-radius: 16px 16px 0 0;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 8px;
+            }
+            
+            .container {
+                padding: 14px;
+                border-radius: 20px;
+                border-width: 2px;
+            }
+            
+            .header {
+                padding: 18px 14px;
+                margin-bottom: 16px;
+                border-radius: 18px;
+            }
+            
+            .instructions {
+                padding: 15px;
+                border-radius: 16px;
+                margin-bottom: 18px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                margin-top: 24px;
+            }
+            
+            button {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 1rem;
+            }
+            
+            .question-header {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .question-number {
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+                font-size: 0.95rem;
+            }
+            
+            .question-text {
+                font-size: 0.97rem;
+            }
+            
+            .text-box, .questions-box {
+                padding: 15px;
+                min-height: 0;
+                font-size: 0.98rem;
+                line-height: 1.65;
+            }
+            
+            .question-item {
+                padding: 14px;
+                border-radius: 16px;
+                margin-bottom: 14px;
+            }
+            
+            .answer-option {
+                padding: 11px 12px;
+                align-items: flex-start;
+            }
+            
+            .option-letter {
+                width: 29px;
+                height: 29px;
+                line-height: 29px;
+                margin-right: 10px;
+            }
+            
+            .emoji {
+                margin-right: 5px;
+            }
+            
+            .decoration {
+                display: none;
+            }
+            
+            .text-content p {
+                text-align: left;
+            }
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="decoration decoration-1">🏕️</div>
+        <div class="decoration decoration-2">🦅</div>
+        
+        <div class="header">
+            <h1><span class="emoji">📚</span> ОГЭ: Текст "Scouts" - Задание на понимание <span class="emoji">🔍</span></h1>
+            <p class="subtitle">Прочитайте текст и определите, какие утверждения соответствуют содержанию текста (True), какие не соответствуют (False) и о чём в тексте не сказано (Not stated).</p>
+        </div>
+        
+        <div class="task-container">
+            <div class="text-section">
+                <h2 class="section-title"><span class="emoji">📄</span> Текст "Scouts"</h2>
+                <div class="text-box" id="text-box">
+                    <div class="text-content" id="text-content">
+                        <p><strong>Scouts</strong></p>
+                        <p>On January 24, 1908, the Boy Scout movement started in England with the publication of Robert Baden-Powell's handbook Scouting for Boys. The name Baden-Powell, a brave officer, was already well-known to many English boys, and thousands of them eagerly bought the handbook. By the end of April, numerous Boy Scout troops had appeared across Britain.</p>
+                        <p>In 1900, General Baden-Powell became a national hero in Britain for his 217-day defense of Mafeking in the Second Boer War in South Africa. Soon after, his military field manual, Aids to Scouting, written for British soldiers in 1899, became popular with a younger audience. Boys loved the lessons on tracking and observation and organized outdoor games using the book. Hearing this, Baden-Powell decided to write a non-military field manual for teenagers that would also emphasize the importance of morality and good deeds.</p>
+                        <p>First, however, he decided to try out some of his ideas on an actual group of boys. On July 25, 1907, he took a diverse group of 21 boys to Brownsea Island in Dorset, where they set up camp for two weeks. With the aid of other instructors, he taught the boys about camping, observation, deduction, woodcraft, boating, life saving, and good manners. Many of these lessons were learned through original games that were very popular with the boys. The first Boy Scout meeting was a great success. Soon the handbook Scouting for Boys appeared.</p>
+                        <p>With the success of Scouting for Boys, Baden-Powell set up a central Boy Scouts' office, which registered new Scouts and designed a uniform. By the end of 1908, there were 60,000 Boy Scouts, and troops began to appear in British Commonwealth countries across the globe. The Scout movement supported the boys in their physical, mental and spiritual development. The boys learned to work together to achieve goals, they also gave a promise to live by certain rules, and to help others when they could.</p>
+                        <p>In September 1909, the first national Boy Scout meeting was held at the Crystal Palace in London. Ten thousand Scouts showed up, including a group of uniformed girls who called themselves the Girl Scouts. A year later, Baden-Powell organized the Girl Guides as a separate organization.</p>
+                        <p>The American version of the Boy Scouts has its origins in an event that occurred in London in 1909. Chicago publisher William Boyce lost his way in the fog. So he stopped under a street light to read his map when he was approached by a young British boy. The boy asked the man if he could help and William Boyce explained that he had got lost. After guiding Boyce to his destination, the boy refused a tip, explaining that as a Boy Scout he would not accept payment for doing a good deed. This anonymous gesture inspired Boyce to organize several regional U.S. youth organizations. The Scouts movement soon spread throughout the country. In 1912, Juliette Gordon Low founded the Girl Scouts of America in Savannah, Georgia.</p>
+                        <p>In 1920 the first international Boy Scout Jamboree was held in London, and Robert Baden-Powell got the title Chief Scout of the World. The founder of the Scout organization died in 1941.</p>
+                        <p>Nowadays, the Scouts Movement exists in 216 different countries all over the world, there are more than 28 million boy scouts and over 10 million girl scouts.</p>
+                        
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 2px dashed #8bb9ff;">
+                            <p style="font-size: 0.95rem; color: #2c5282; font-style: italic;">
+                                <strong>Задание выполняется в формате ОГЭ по английскому языку.</strong><br>
+                                Вам необходимо определить, соответствуют ли утверждения 13-19 содержанию текста.<br>
+                                Обратите внимание на детали и нюансы при анализе текста.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="questions-section">
+                <h2 class="section-title"><span class="emoji">❓</span> Утверждения 13-19</h2>
+                <div class="questions-box" id="questions-box">
+                    <!-- Вопросы будут добавлены с помощью JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="check-btn" id="check-btn"><span class="emoji">✅</span> Проверить ответы</button>
+            <button class="reset-btn" id="reset-btn"><span class="emoji">🔄</span> Начать заново</button>
+        </div>
+        
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        // Правильные ответы для заданий 13-19 из текста "Scouts"
+        const correctAnswers = {
+            13: 2, // False - Robert Baden-Powell was a secondary school teacher (он был офицером, а не учителем)
+            14: 1, // True - The success of Aids to Scouting made Robert Baden-Powell write a similar book for young people
+            15: 3, // Not stated - The word scout was invented by Robert Baden-Powell
+            16: 2, // False - The first camp organised by Robert Baden-Powell on an island was a failure
+            17: 3, // Not stated - The Boy Scouts' rules and the Girl Scouts' rules were different
+            18: 1, // True - William Boyce founded the Boy Scouts organization in the USA because he was impressed by the behaviour of a British Scout
+            19: 2  // False - Robert Baden-Powell was awarded the title Chief Scout of the World after his death
+        };
+        
+        // Текст для выделения при проверке (исправлено - только предложения из текста)
+        const textHighlights = {
+            13: "The name Baden-Powell, a brave officer, was already well-known to many English boys",
+            14: "Soon after, his military field manual, Aids to Scouting, written for British soldiers in 1899, became popular with a younger audience. Boys loved the lessons on tracking and observation and organized outdoor games using the book. Hearing this, Baden-Powell decided to write a non-military field manual for teenagers that would also emphasize the importance of morality and good deeds.",
+            15: "", // Нет информации о том, кто изобрел слово "scout"
+            16: "The first Boy Scout meeting was a great success.",
+            17: "", // Нет сравнения правил для мальчиков и девочек
+            18: "Chicago publisher William Boyce lost his way in the fog. So he stopped under a street light to read his map when he was approached by a young British boy. The boy asked the man if he could help and William Boyce explained that he had got lost. After guiding Boyce to his destination, the boy refused a tip, explaining that as a Boy Scout he would not accept payment for doing a good deed. This anonymous gesture inspired Boyce to organize several regional U.S. youth organizations.",
+            19: "In 1920 the first international Boy Scout Jamboree was held in London, and Robert Baden-Powell got the title Chief Scout of the World. The founder of the Scout organization died in 1941."
+        };
+        
+        // Объяснения для ответов (упрощенные и более лаконичные)
+        const explanations = {
+            13: "В тексте указано, что Баден-Пауэлл был храбрым офицером (a brave officer), а не школьным учителем. Поэтому утверждение неверно.",
+            14: "Военное руководство 'Aids to Scouting' стало популярным среди молодежи, что побудило Баден-Пауэлла написать невоенное руководство для подростков.",
+            15: "В тексте не указано, кто изобрел слово 'scout'. Нет информации об авторстве этого слова.",
+            16: "Текст прямо говорит, что первая встреча бойскаутов была большим успехом, а не неудачей.",
+            17: "В тексте не сравниваются правила для мальчиков и девочек. Упоминается только создание отдельных организаций.",
+            18: "Британский скаут помог Уильяму Бойсу, отказавшись от чаевых. Этот поступок вдохновил Бойса создать скаутские организации в США.",
+            19: "Баден-Пауэлл получил титул 'Chief Scout of the World' в 1920 году, а умер в 1941 году, поэтому титул был присвоен при жизни."
+        };
+        
+        // Варианты ответов
+        const answerOptions = [
+            "1) True (верно)",
+            "2) False (неверно)", 
+            "3) Not stated (не сказано в тексте)"
+        ];
+        
+        // Эмодзи для вопросов
+        const questionEmojis = ["👨‍🏫", "📚", "🔤", "🏝️", "⚖️", "🇺🇸", "🏆"];
+        
+        // Исходный текст для сброса
+        const originalTextContent = `<p><strong>Scouts</strong></p>
+                        <p>On January 24, 1908, the Boy Scout movement started in England with the publication of Robert Baden-Powell's handbook Scouting for Boys. The name Baden-Powell, a brave officer, was already well-known to many English boys, and thousands of them eagerly bought the handbook. By the end of April, numerous Boy Scout troops had appeared across Britain.</p>
+                        <p>In 1900, General Baden-Powell became a national hero in Britain for his 217-day defense of Mafeking in the Second Boer War in South Africa. Soon after, his military field manual, Aids to Scouting, written for British soldiers in 1899, became popular with a younger audience. Boys loved the lessons on tracking and observation and organized outdoor games using the book. Hearing this, Baden-Powell decided to write a non-military field manual for teenagers that would also emphasize the importance of morality and good deeds.</p>
+                        <p>First, however, he decided to try out some of his ideas on an actual group of boys. On July 25, 1907, he took a diverse group of 21 boys to Brownsea Island in Dorset, where they set up camp for two weeks. With the aid of other instructors, he taught the boys about camping, observation, deduction, woodcraft, boating, life saving, and good manners. Many of these lessons were learned through original games that were very popular with the boys. The first Boy Scout meeting was a great success. Soon the handbook Scouting for Boys appeared.</p>
+                        <p>With the success of Scouting for Boys, Baden-Powell set up a central Boy Scouts' office, which registered new Scouts and designed a uniform. By the end of 1908, there were 60,000 Boy Scouts, and troops began to appear in British Commonwealth countries across the globe. The Scout movement supported the boys in their physical, mental and spiritual development. The boys learned to work together to achieve goals, they also gave a promise to live by certain rules, and to help others when they could.</p>
+                        <p>In September 1909, the first national Boy Scout meeting was held at the Crystal Palace in London. Ten thousand Scouts showed up, including a group of uniformed girls who called themselves the Girl Scouts. A year later, Baden-Powell organized the Girl Guides as a separate organization.</p>
+                        <p>The American version of the Boy Scouts has its origins in an event that occurred in London in 1909. Chicago publisher William Boyce lost his way in the fog. So he stopped under a street light to read his map when he was approached by a young British boy. The boy asked the man if he could help and William Boyce explained that he had got lost. After guiding Boyce to his destination, the boy refused a tip, explaining that as a Boy Scout he would not accept payment for doing a good deed. This anonymous gesture inspired Boyce to organize several regional U.S. youth organizations. The Scouts movement soon spread throughout the country. In 1912, Juliette Gordon Low founded the Girl Scouts of America in Savannah, Georgia.</p>
+                        <p>In 1920 the first international Boy Scout Jamboree was held in London, and Robert Baden-Powell got the title Chief Scout of the World. The founder of the Scout organization died in 1941.</p>
+                        <p>Nowadays, the Scouts Movement exists in 216 different countries all over the world, there are more than 28 million boy scouts and over 10 million girl scouts.</p>
+                        
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 2px dashed #8bb9ff;">
+                            <p style="font-size: 0.95rem; color: #2c5282; font-style: italic;">
+                                <strong>Задание выполняется в формате ОГЭ по английскому языку.</strong><br>
+                                Вам необходимо определить, соответствуют ли утверждения 13-19 содержанию текста.<br>
+                                Обратите внимание на детали и нюансы при анализе текста.
+                            </p>
+                        </div>`;
+        
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Создаем вопросы (справа)
+            const questionsBox = document.getElementById('questions-box');
+            
+            for (let i = 13; i <= 19; i++) {
+                const questionItem = document.createElement('div');
+                questionItem.className = 'question-item';
+                questionItem.id = `question-${i}`;
+                
+                let questionText = "";
+                switch(i) {
+                    case 13: questionText = "Robert Baden-Powell was a secondary school teacher."; break;
+                    case 14: questionText = "The success of Aids to Scouting made Robert Baden-Powell write a similar book for young people."; break;
+                    case 15: questionText = "The word scout was invented by Robert Baden-Powell."; break;
+                    case 16: questionText = "The first camp organised by Robert Baden-Powell on an island was a failure."; break;
+                    case 17: questionText = "The Boy Scouts' rules and the Girl Scouts' rules were different."; break;
+                    case 18: questionText = "William Boyce founded the Boy Scouts organization in the USA because he was impressed by the behaviour of a British Scout."; break;
+                    case 19: questionText = "Robert Baden-Powell was awarded the title Chief Scout of the World after his death."; break;
+                }
+                
+                questionItem.innerHTML = `
+                    <div class="question-header">
+                        <div class="question-number">${i}</div>
+                        <div class="question-text">
+                            <span class="emoji">${questionEmojis[i-13]}</span> ${questionText}
+                        </div>
+                    </div>
+                    <div class="answer-options" id="options-${i}">
+                        <!-- Варианты ответов будут добавлены с помощью JavaScript -->
+                    </div>
+                    <div class="feedback" id="feedback-${i}"></div>
+                `;
+                
+                questionsBox.appendChild(questionItem);
+                
+                // Добавляем варианты ответов
+                const optionsContainer = document.getElementById(`options-${i}`);
+                
+                answerOptions.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'answer-option';
+                    optionElement.dataset.question = i;
+                    optionElement.dataset.answer = index + 1;
+                    
+                    optionElement.innerHTML = `
+                        <div class="option-letter">${String.fromCharCode(65 + index)}</div>
+                        <div>${option}</div>
+                    `;
+                    
+                    optionElement.addEventListener('click', function() {
+                        selectAnswer(i, index + 1);
+                    });
+                    
+                    optionsContainer.appendChild(optionElement);
+                });
+            }
+            
+            // Обработчик кнопки проверки
+            document.getElementById('check-btn').addEventListener('click', checkAnswers);
+            
+            // Обработчик кнопки сброса
+            document.getElementById('reset-btn').addEventListener('click', resetAnswers);
+        });
+        
+        // Функция выбора ответа
+        function selectAnswer(questionNumber, answer) {
+            // Убираем выделение со всех вариантов для этого вопроса
+            const options = document.querySelectorAll(`#options-${questionNumber} .answer-option`);
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Выделяем выбранный вариант
+            const selectedOption = document.querySelector(`#options-${questionNumber} .answer-option[data-answer="${answer}"]`);
+            selectedOption.classList.add('selected');
+            
+            // Скрываем предыдущий фидбек
+            const feedback = document.getElementById(`feedback-${questionNumber}`);
+            feedback.style.display = 'none';
+        }
+        
+        // Функция безопасного экранирования строк для RegExp
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+        
+        // Функция проверки ответов
+        function checkAnswers() {
+            let allCorrect = true;
+            let correctCount = 0;
+            const totalQuestions = 7;
+            
+            // Сбрасываем выделение в тексте
+            document.getElementById('text-content').innerHTML = originalTextContent;
+            
+            // Проверяем каждый ответ
+            for (let i = 13; i <= 19; i++) {
+                const selectedOption = document.querySelector(`#options-${i} .answer-option.selected`);
+                const feedback = document.getElementById(`feedback-${i}`);
+                const options = document.querySelectorAll(`#options-${i} .answer-option`);
+                
+                // Сбрасываем стили вариантов ответов
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.querySelector('.option-letter').classList.remove('correct', 'incorrect');
+                });
+                
+                if (!selectedOption) {
+                    feedback.textContent = "❌ Вы не выбрали ответ для этого вопроса.";
+                    feedback.classList.add('incorrect-feedback');
+                    feedback.style.display = 'block';
+                    allCorrect = false;
+                    continue;
+                }
+                
+                const userAnswer = parseInt(selectedOption.dataset.answer);
+                const correctAnswer = correctAnswers[i];
+                
+                if (userAnswer === correctAnswer) {
+                    // Правильный ответ
+                    selectedOption.classList.add('correct');
+                    selectedOption.querySelector('.option-letter').classList.add('correct');
+                    feedback.textContent = `✅ Верно! ${explanations[i]}`;
+                    feedback.classList.add('correct-feedback');
+                    feedback.style.display = 'block';
+                    correctCount++;
+                } else {
+                    // Неправильный ответ
+                    selectedOption.classList.add('incorrect');
+                    selectedOption.querySelector('.option-letter').classList.add('incorrect');
+                    feedback.textContent = `❌ Неверно. ${explanations[i]}`;
+                    feedback.classList.add('incorrect-feedback');
+                    feedback.style.display = 'block';
+                    allCorrect = false;
+                    
+                    // Выделяем правильный вариант
+                    const correctOption = document.querySelector(`#options-${i} .answer-option[data-answer="${correctAnswer}"]`);
+                    if (correctOption) {
+                        correctOption.classList.add('correct');
+                        correctOption.querySelector('.option-letter').classList.add('correct');
+                    }
+                }
+                
+                // Выделяем соответствующий текст в основном тексте
+                if (textHighlights[i] && textHighlights[i].trim() !== "") {
+                    const contentElement = document.getElementById('text-content');
+                    let currentHTML = contentElement.innerHTML;
+                    
+                    const escapedText = escapeRegExp(textHighlights[i]);
+                    const regex = new RegExp(`(${escapedText})`, 'g');
+                    currentHTML = currentHTML.replace(regex, `<span class="highlight">$1</span>`);
+                    
+                    contentElement.innerHTML = currentHTML;
+                }
+            }
+            
+            // Показываем результаты
+            const results = document.getElementById('results');
+            results.style.display = 'block';
+            
+            if (allCorrect) {
+                results.textContent = `🎉 Поздравляем! Все ${totalQuestions} ответов правильные! Вы отлично поняли текст! 🎉`;
+                results.className = 'results success';
+            } else {
+                results.textContent = `📊 Результат: ${correctCount} из ${totalQuestions} правильных ответов. Попробуйте ещё раз!`;
+                results.className = 'results partial';
+            }
+            
+            // Прокручиваем к результатам
+            results.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Функция сброса ответов
+        function resetAnswers() {
+            // Сбрасываем выбор ответов
+            for (let i = 13; i <= 19; i++) {
+                const options = document.querySelectorAll(`#options-${i} .answer-option`);
+                options.forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                    option.querySelector('.option-letter').classList.remove('correct', 'incorrect');
+                });
+                
+                const feedback = document.getElementById(`feedback-${i}`);
+                feedback.style.display = 'none';
+            }
+            
+            // Сбрасываем выделение в тексте
+            document.getElementById('text-content').innerHTML = originalTextContent;
+            
+            // Скрываем результаты
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteering Grammar Tasks</title>
+  <style>
+@media (max-width: 820px) {
+    body {
+        padding: 6px;
+        padding-bottom: 72px;
+    }
+
+    .app {
+        border-radius: 18px;
+    }
+
+    .hero {
+        padding: 18px 12px;
+    }
+
+    .section-tabs {
+        grid-template-columns: 1fr;
+        padding: 10px 10px 0;
+        gap: 8px;
+    }
+
+    .content {
+        padding: 12px;
+    }
+
+    .task-header, .exercise-body, .controls {
+        padding: 12px;
+    }
+
+    .sentence {
+        grid-template-columns: 44px 1fr;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .base-word {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+    .feedback-line {
+        grid-column: 1 / -1;
+    }
+
+    .answer-input {
+        width: 100%;
+        margin: 6px 0;
+    }
+
+    .controls .check-btn {
+        display: none;
+    }
+
+    .mobile-sticky {
+        display: block;
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 520px) {
+    .hero::after {
+        font-size: 60px;
+        right: 8px;
+        top: 12px;
+    }
+
+    .sentence-main {
+        font-size: 0.95rem;
+    }
+
+    .control-btn {
+        width: 100%;
+    }
+
+    .section-title-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 820px) {
+    body {
+        padding: 10px;
+        padding-bottom: 86px;
+    }
+
+    .app {
+        border-radius: 22px;
+    }
+
+    .hero {
+        padding: 22px 18px;
+    }
+
+    .section-tabs {
+        grid-template-columns: 1fr;
+        padding: 14px 14px 0;
+        gap: 10px;
+    }
+
+    .content {
+        padding: 14px;
+    }
+
+    .task-header, .exercise-body, .controls {
+        padding: 16px;
+    }
+
+    .sentence {
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .base-word {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+    .feedback-line {
+        grid-column: 1 / -1;
+    }
+
+    .answer-input {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .controls .check-btn {
+        display: none;
+    }
+
+    .mobile-sticky {
+        display: block;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero::after {
+        font-size: 74px;
+        right: 10px;
+        top: 24px;
+    }
+
+    .sentence-main {
+        font-size: 1rem;
+    }
+
+    .control-btn {
+        width: 100%;
+    }
+
+    .section-title-btn {
+        font-size: 0.95rem;
+    }
+}
+
+    * { box-sizing: border-box; }
+
+    :root {
+      --green-dark: #064e3b;
+      --green-main: #16a34a;
+      --green-bright: #22c55e;
+      --green-soft: #dcfce7;
+      --green-pale: #f0fdf4;
+      --mint: #bbf7d0;
+      --white: #ffffff;
+      --text: #14352a;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --warning: #ca8a04;
+      --shadow: 0 18px 45px rgba(6, 78, 59, 0.16);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 20%, rgba(34, 197, 94, 0.18) 0 8px, transparent 9px),
+        radial-gradient(circle at 85% 12%, rgba(187, 247, 208, 0.75) 0 90px, transparent 91px),
+        radial-gradient(circle at 90% 88%, rgba(34, 197, 94, 0.16) 0 130px, transparent 131px),
+        linear-gradient(135deg, #ecfdf5 0%, #ffffff 45%, #dcfce7 100%);
+      padding: 22px;
+    }
+
+    .app {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.92);
+      border: 2px solid rgba(34, 197, 94, 0.35);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero {
+      position: relative;
+      padding: 28px 28px 24px;
+      background: linear-gradient(135deg, #064e3b 0%, #16a34a 55%, #86efac 100%);
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "🌿";
+      position: absolute;
+      right: 28px;
+      top: 10px;
+      font-size: 100px;
+      opacity: 0.18;
+      transform: rotate(-12deg);
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.65rem, 4vw, 3rem);
+      line-height: 1.05;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 860px;
+      font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+      line-height: 1.45;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 18px 22px 0;
+      background: var(--white);
+    }
+
+    .section-title-btn {
+      border: 2px solid rgba(34, 197, 94, 0.35);
+      border-radius: 18px;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-weight: 800;
+      padding: 14px 12px;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 7px 16px rgba(6, 78, 59, 0.08);
+      font-size: 1rem;
+    }
+
+    .section-title-btn:hover { transform: translateY(-2px); background: var(--green-soft); }
+    .section-title-btn.active {
+      background: linear-gradient(135deg, var(--green-bright), var(--green-main));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 12px 24px rgba(22, 163, 74, 0.28);
+    }
+
+    .content {
+      padding: 22px;
+    }
+
+    .task-page {
+      display: none;
+      animation: pageIn 0.42s ease both;
+    }
+
+    .task-page.active { display: block; }
+
+    @keyframes pageIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .task-card {
+      border-radius: 26px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fff9 100%);
+      border: 2px solid rgba(34, 197, 94, 0.22);
+      box-shadow: 0 14px 32px rgba(6, 78, 59, 0.10);
+      overflow: hidden;
+    }
+
+    .task-header {
+      padding: 20px 22px;
+      background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+      border-bottom: 2px dashed rgba(22, 163, 74, 0.35);
+    }
+
+    .task-header h2 {
+      margin: 0 0 8px;
+      color: var(--green-dark);
+      font-size: clamp(1.35rem, 3vw, 2rem);
+    }
+
+    .task-header p {
+      margin: 0;
+      line-height: 1.45;
+      font-size: 1rem;
+    }
+
+    .exercise-body {
+      padding: 22px;
+    }
+
+    .task-text {
+      display: grid;
+      gap: 16px;
+    }
+
+    .sentence {
+      display: grid;
+      grid-template-columns: 52px 1fr 120px;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      background: #ffffff;
+      border: 2px solid rgba(187, 247, 208, 0.8);
+      border-radius: 18px;
+      box-shadow: 0 6px 14px rgba(6, 78, 59, 0.06);
+    }
+
+    .num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-main));
+      color: #ffffff;
+      font-weight: 900;
+      box-shadow: 0 8px 15px rgba(22, 163, 74, 0.22);
+    }
+
+    .sentence-main {
+      line-height: 1.65;
+      font-size: 1.05rem;
+    }
+
+    .answer-input {
+      display: inline-block;
+      width: min(230px, 100%);
+      padding: 10px 12px;
+      margin: 0 4px;
+      border-radius: 12px;
+      border: 2px solid #86efac;
+      background: #f8fff9;
+      color: var(--green-dark);
+      font-size: 1rem;
+      font-weight: 700;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .answer-input:focus {
+      border-color: var(--green-main);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+      background: #ffffff;
+    }
+
+    .answer-input.correct { border-color: var(--success); background: var(--success-bg); }
+    .answer-input.incorrect { border-color: var(--danger); background: var(--danger-bg); }
+
+    .base-word {
+      justify-self: end;
+      align-self: center;
+      min-width: 92px;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #ecfdf5;
+      color: var(--green-dark);
+      font-weight: 900;
+      border: 2px solid rgba(34, 197, 94, 0.28);
+      letter-spacing: 0.04em;
+    }
+
+    .feedback-line {
+      grid-column: 2 / -1;
+      display: none;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .feedback-line.show { display: block; animation: pageIn 0.25s ease both; }
+    .feedback-line.correct { background: var(--success-bg); color: var(--success); }
+    .feedback-line.incorrect { background: var(--danger-bg); color: var(--danger); }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 22px;
+      border-top: 2px dashed rgba(22, 163, 74, 0.26);
+      background: #fbfffc;
+    }
+
+    .control-btn {
+      border: none;
+      border-radius: 16px;
+      padding: 14px 22px;
+      min-width: 150px;
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 10px 20px rgba(6, 78, 59, 0.10);
+    }
+
+    .control-btn:hover { transform: translateY(-2px); }
+    .control-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    .back-btn, .next-btn { background: #d1fae5; color: var(--green-dark); }
+    .check-btn { background: linear-gradient(135deg, var(--green-bright), var(--green-main)); color: white; }
+    .answers-btn { background: #fef3c7; color: #92400e; }
+    .reset-btn { background: #e5e7eb; color: #374151; }
+
+    .result-box {
+      display: none;
+      margin: 0 22px 22px;
+      padding: 16px;
+      text-align: center;
+      border-radius: 18px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      animation: pageIn 0.35s ease both;
+    }
+
+    .result-box.show { display: block; }
+    .result-box.good { background: var(--success-bg); color: var(--success); border: 2px solid #86efac; }
+    .result-box.mid { background: #fef3c7; color: var(--warning); border: 2px solid #facc15; }
+
+    .mobile-sticky {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.92);
+      border-top: 2px solid rgba(34, 197, 94, 0.35);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -10px 24px rgba(6, 78, 59, 0.12);
+    }
+
+    .mobile-sticky .check-btn {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 14px;
+      font-weight: 900;
+      color: #fff;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-main));
+    }
+
+    @media (max-width: 820px) {
+      body { padding: 10px; padding-bottom: 86px; }
+      .app { border-radius: 22px; }
+      .hero { padding: 22px 18px; }
+      .section-tabs { grid-template-columns: 1fr; padding: 14px 14px 0; gap: 10px; }
+      .content { padding: 14px; }
+      .task-header, .exercise-body, .controls { padding: 16px; }
+      .sentence { grid-template-columns: 44px 1fr; gap: 12px; padding: 14px; }
+      .base-word { grid-column: 2; justify-self: start; }
+      .feedback-line { grid-column: 1 / -1; }
+      .answer-input { width: 100%; margin: 8px 0; }
+      .controls .check-btn { display: none; }
+      .mobile-sticky { display: block; }
+    }
+
+    @media (max-width: 520px) {
+      .hero::after { font-size: 74px; right: 10px; top: 24px; }
+      .sentence-main { font-size: 1rem; }
+      .control-btn { width: 100%; }
+      .section-title-btn { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <h1>Grammar Tasks</h1>
+      <p>Fill in the gaps with the correct grammatical form. Use Check to see your result, Show the answers to reveal the correct forms, and Back/Next to move between tasks.</p>
+    </section>
+
+    <nav class="section-tabs" aria-label="Grammar task sections">
+      <button class="section-title-btn active" data-page="0">Animal shelter</button>
+      <button class="section-title-btn" data-page="1">Earthquake</button>
+      
+    </nav>
+
+    <section class="content" id="pages"></section>
+  </main>
+
+  <div class="mobile-sticky">
+    <button class="check-btn" id="mobile-check">✅ Check</button>
+  </div>
+
+  <script>
+    const tasks = [
+      {
+        title: 'Animal shelter',
+        instruction: 'Прочитайте текст. Преобразуйте слова, напечатанные заглавными буквами, так, чтобы они грамматически соответствовали содержанию текста. Задания 20–28.',
+        items: [
+          { n: 20, base: 'LIKE', answer: 'will like', text: 'Tim liked going to the zoo. One day his mother said: “We’re going to a different place today, Tim. It’s an animal shelter. I’m sure you ___ it.”' },
+          { n: 21, base: 'SMALL', answer: 'smaller', text: 'The place was much ___ than a zoo, but clean and well kept. There were volunteers in special uniforms. One of them showed Tim and his mum round the shelter.' },
+          { n: 22, base: 'KEEP', answer: 'were kept', text: 'Lots of animals ___ there.' },
+          { n: 23, base: 'FOX', answer: 'foxes', text: 'Cats and dogs made up most of the population, but there were also horses, monkeys, ___ and other animals.' },
+          { n: 24, base: 'THEY', answer: 'their', text: 'Each of the animals had its own story written on a sign next to its cage or enclosure. All the stories were sad – the animals had either been abandoned by ___ owners or saved by the animal police from cruel treatment.' },
+          { n: 25, base: 'BE', answer: 'were', text: '“If people ___ more responsible for their pets, we wouldn’t have so much work here,” the volunteer remarked.' },
+          { n: 26, base: 'NOT UNDERSTAND', answer: 'do not understand', also: ['don’t understand', 'dont understand'], text: '“But unfortunately some people ___ that animals are not toys.”' },
+          { n: 27, base: 'MAKE', answer: 'made', text: 'Tim’s mother thanked the volunteer and ___ a donation. Shelters always needed money to pay for the animals’ food and medical care.' },
+          { n: 28, base: 'WANT', answer: 'wanted', text: 'On the way home Tim told his mother that he ___ to go to the shelter again, not only to watch but also to help the volunteers.' }
+        ]
+      },
+      {
+        title: 'Earthquake',
+        instruction: 'Прочитайте текст. Преобразуйте слова, напечатанные заглавными буквами, так, чтобы они грамматически соответствовали содержанию текста. Задания 20–28.',
+        items: [
+          { n: 20, base: 'TWELVE', answer: 'twelfth', also: ['the twelfth'], text: 'In 2010, a terrible earthquake hit the Haitian city of Léogâne. It was the ___ of January, my birthday. It was a normal day in the morning.' },
+          { n: 21, base: 'PREPARE', answer: 'was preparing', text: 'I ___ for my party when the earthquake hit. My first thought was that everybody was going to die.' },
+          { n: 22, base: 'NOT UNDERSTAND', answer: 'did not understand', also: ['didn’t understand', 'didnt understand'], text: 'I ___ what was happening.' },
+          { n: 23, base: 'BAD', answer: 'worst', also: ['the worst'], text: 'It was the ___ day of my life so far – I have never felt that scared! After the earthquake I asked my wife: “How are we going to go on living?”' },
+          { n: 24, base: 'LIFE', answer: 'lives', text: '“I have no idea,” she said. “But we’re lucky. Our house is still standing, and thousands of people lost everything, even their ___”.' },
+          { n: 25, base: 'GIVE', answer: 'gave', text: 'She was right. We had to help the others, so we decided to start a charitable fund. At first we ___ it the name of ‘Hope’ but then changed it.' },
+          { n: 26, base: 'CALL', answer: 'is called', text: 'Now our fund ___ “Seeds for Change”.' },
+          { n: 27, base: 'WE', answer: 'us', text: 'We work with small farmers and provide people from rural areas with everything necessary for farming. They say it helps them a lot. Their gratitude is the best award for ___.' },
+          { n: 28, base: 'GET', answer: 'will get', text: 'If we manage to involve more people in our fund, we ___ more impressive results in the future.' }
+        ]
+      },
+      
+    ];
+
+    let currentPage = 0;
+    const pages = document.getElementById('pages');
+    const tabs = document.querySelectorAll('.section-title-btn');
+    const normalize = value => value.trim().toLowerCase().replace(/\s+/g, ' ');
+
+    function vibrate(pattern) {
+      if ('vibrate' in navigator) navigator.vibrate(pattern);
+    }
+
+    function beep(type = 'tap') {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.type = 'sine';
+        osc.frequency.value = type === 'success' ? 740 : type === 'error' ? 180 : 420;
+        gain.gain.setValueAtTime(0.001, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.08, ctx.currentTime + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.13);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.14);
+      } catch (e) {}
+    }
+
+    function makeInput(item) {
+      return `<input class="answer-input" data-n="${item.n}" autocomplete="off" aria-label="Answer ${item.n}" />`;
+    }
+
+    function renderPages() {
+      pages.innerHTML = tasks.map((task, pageIndex) => `
+        <article class="task-page ${pageIndex === 0 ? 'active' : ''}" data-page-index="${pageIndex}">
+          <div class="task-card">
+            <header class="task-header">
+              <h2>${task.title}</h2>
+              <p>${task.instruction}</p>
+            </header>
+            <div class="exercise-body">
+              <div class="task-text">
+                ${task.items.map(item => {
+                  const htmlText = item.text.replace('___', makeInput(item));
+                  return `
+                    <div class="sentence" data-item="${item.n}">
+                      <div class="num">${item.n}</div>
+                      <div class="sentence-main">${htmlText}</div>
+                      <div class="base-word">${item.base}</div>
+                      <div class="feedback-line" id="feedback-${pageIndex}-${item.n}"></div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+            <div class="controls">
+              <button class="control-btn back-btn" onclick="goBack()">⬅ Back</button>
+              <button class="control-btn check-btn" onclick="checkCurrentPage()">✅ Check</button>
+              <button class="control-btn answers-btn" onclick="showAnswers()">👀 Show the answers</button>
+              <button class="control-btn reset-btn" onclick="resetCurrentPage()">↻ Reset</button>
+              <button class="control-btn next-btn" onclick="goNext()">Next ➡</button>
+            </div>
+            <div class="result-box" id="result-${pageIndex}"></div>
+          </div>
+        </article>
+      `).join('');
+      updateNavState();
+      bindInputs();
+    }
+
+    function bindInputs() {
+      document.querySelectorAll('.answer-input').forEach(input => {
+        input.addEventListener('input', () => {
+          input.classList.remove('correct', 'incorrect');
+          const sentence = input.closest('.sentence');
+          const feedback = sentence.querySelector('.feedback-line');
+          feedback.className = 'feedback-line';
+          feedback.textContent = '';
+        });
+        input.addEventListener('focus', () => {
+          beep('tap');
+          vibrate(12);
+        });
+      });
+    }
+
+    function showPage(index) {
+      currentPage = Math.max(0, Math.min(tasks.length - 1, index));
+      document.querySelectorAll('.task-page').forEach((page, i) => {
+        page.classList.toggle('active', i === currentPage);
+      });
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === currentPage));
+      updateNavState();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      beep('tap');
+      vibrate(20);
+    }
+
+    function updateNavState() {
+      document.querySelectorAll('.task-page').forEach((page, i) => {
+        const back = page.querySelector('.back-btn');
+        const next = page.querySelector('.next-btn');
+        if (back) back.disabled = i === 0;
+        if (next) next.disabled = i === tasks.length - 1;
+      });
+    }
+
+    function getCurrentInputs() {
+      return document.querySelectorAll(`.task-page[data-page-index="${currentPage}"] .answer-input`);
+    }
+
+    function validAnswers(item) {
+      return [item.answer, ...(item.also || [])].map(normalize);
+    }
+
+
+    function getExplanation(pageIndex, item) {
+      const key = `${pageIndex}-${item.n}`;
+      const explanations = {
+        '0-20': 'После “I’m sure” часто говорим о будущем: will + глагол без окончания.',
+        '0-21': 'Есть слово “than”, значит нужна сравнительная степень: small → smaller.',
+        '0-22': 'Животных содержали там, они не сами выполняли действие. Нужен пассив в прошлом: were + V3.',
+        '0-23': 'Нужно множественное число. Слово fox во множественном числе получает окончание -es: foxes.',
+        '0-24': 'Здесь нужно показать, чьи это хозяева. После пропуска стоит существительное owners, поэтому нужно their.',
+        '0-25': 'Это условное предложение второго типа: If + Past Simple. После people используем were.',
+        '0-26': 'Это общее утверждение в настоящем времени. Для отрицания во Present Simple нужно do not + глагол.',
+        '0-27': 'Все действия происходят в прошлом: thanked and made. Поэтому нужен Past Simple.',
+        '0-28': 'Tim told his mother — действие в прошлом, поэтому wanted.',
+
+        '1-20': 'Речь о дате: the twelfth of January. Нужно порядковое числительное.',
+        '1-21': 'Действие происходило в конкретный момент в прошлом, когда случилось землетрясение. Нужен Past Continuous: was preparing.',
+        '1-22': 'Событие произошло в прошлом. Для отрицания в Past Simple используем did not + глагол.',
+        '1-23': 'Перед нами сравнение с самым сильным значением: the worst day — худший день.',
+        '1-24': 'Thousands of people — много людей, значит нужно множественное число: lives.',
+        '1-25': 'Действие произошло в прошлом, поэтому нужен Past Simple: gave.',
+        '1-26': 'Фонд называется сейчас, но название дано не самим фондом. Нужен пассив: is called.',
+        '1-27': 'После предлога for нужно объектное местоимение: we → us.',
+        '1-28': 'В главной части после If речь о будущем результате: will get.',
+
+        '2-29': 'После артикля an нужно существительное. От organize образуем organization.',
+        '2-30': 'После be нужно прилагательное. От risk образуем risky.',
+        '2-31': 'По смыслу нужен вариант “необычный”: usual → unusual.',
+        '2-32': 'Нужно описать, как они привлекли внимание. Для действия нужен наречие: quickly.',
+        '2-33': 'После the нужно существительное: govern → government.',
+        '2-34': 'После was нужно прилагательное: success → successful.'
+      };
+      return explanations[key] || 'Проверь форму слова и посмотри на время, число или часть речи в предложении.';
+    }
+
+    function checkCurrentPage() {
+      const task = tasks[currentPage];
+      let correctCount = 0;
+      const inputs = getCurrentInputs();
+
+      inputs.forEach(input => {
+        const n = Number(input.dataset.n);
+        const item = task.items.find(x => x.n === n);
+        const sentence = input.closest('.sentence');
+        const feedback = sentence.querySelector('.feedback-line');
+        const userAnswer = normalize(input.value);
+        const isCorrect = validAnswers(item).includes(userAnswer);
+
+        input.classList.remove('correct', 'incorrect');
+        feedback.className = 'feedback-line show';
+
+        if (isCorrect) {
+          input.classList.add('correct');
+          feedback.classList.add('correct');
+          feedback.textContent = `✅ Correct: ${item.answer}`;
+          correctCount++;
+        } else {
+          input.classList.add('incorrect');
+          feedback.classList.add('incorrect');
+          const explanation = getExplanation(currentPage, item);
+          feedback.textContent = input.value.trim()
+            ? `❌ Ошибка. Правильный ответ: ${item.answer}. ${explanation}`
+            : `❌ Нет ответа. Правильный ответ: ${item.answer}. ${explanation}`;
+        }
+      });
+
+      const result = document.getElementById(`result-${currentPage}`);
+      result.className = `result-box show ${correctCount === task.items.length ? 'good' : 'mid'}`;
+      result.textContent = correctCount === task.items.length
+        ? `🎉 Excellent! ${correctCount}/${task.items.length}`
+        : `📊 Result: ${correctCount}/${task.items.length}. You can correct your answers and press Check again.`;
+
+      beep(correctCount === task.items.length ? 'success' : 'error');
+      vibrate(correctCount === task.items.length ? [30, 40, 30] : [80]);
+    }
+
+    function showAnswers() {
+      const task = tasks[currentPage];
+      getCurrentInputs().forEach(input => {
+        const n = Number(input.dataset.n);
+        const item = task.items.find(x => x.n === n);
+        input.value = item.answer;
+        input.classList.remove('incorrect');
+        input.classList.add('correct');
+        const feedback = input.closest('.sentence').querySelector('.feedback-line');
+        feedback.className = 'feedback-line show correct';
+        feedback.textContent = `👀 Answer: ${item.answer}`;
+      });
+      const result = document.getElementById(`result-${currentPage}`);
+      result.className = 'result-box show good';
+      result.textContent = '✅ Answers are shown.';
+      beep('success');
+      vibrate([20, 30, 20]);
+    }
+
+    function resetCurrentPage() {
+      getCurrentInputs().forEach(input => {
+        input.value = '';
+        input.classList.remove('correct', 'incorrect');
+        const feedback = input.closest('.sentence').querySelector('.feedback-line');
+        feedback.className = 'feedback-line';
+        feedback.textContent = '';
+      });
+      const result = document.getElementById(`result-${currentPage}`);
+      result.className = 'result-box';
+      result.textContent = '';
+      beep('tap');
+      vibrate(20);
+    }
+
+    function goBack() { showPage(currentPage - 1); }
+    function goNext() { showPage(currentPage + 1); }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => showPage(Number(tab.dataset.page)));
+    });
+
+    document.getElementById('mobile-check').addEventListener('click', checkCurrentPage);
+    renderPages();
+  </script>
+</body>
+</html>
